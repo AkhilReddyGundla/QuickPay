@@ -54,11 +54,15 @@ router.post("/signup",async (req,res)=>{
     })
     
     const newUserAccount = await Accounts.create({
+<<<<<<< HEAD
         "username" : body.username,
+=======
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
         "userId" : newUser._id,
         "balance" : Math.floor(Math.random()*1000 + 1)
     })
     const user_id = newUser._id;
+<<<<<<< HEAD
     try{
         const token = jwt.sign({
             user_id
@@ -73,6 +77,16 @@ router.post("/signup",async (req,res)=>{
             
         })
     }
+=======
+    
+    const token = jwt.sign({
+        user_id
+    },JWT_SECRET);
+    res.json({
+        "Msg" : "Your account created",
+        token : token
+    })
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
 })
 
 router.post("/signin",async(req,res)=>{
@@ -85,31 +99,50 @@ router.post("/signin",async(req,res)=>{
     }
     try{
         const user = await User.findOne({username : body.username})
+<<<<<<< HEAD
         const account = await Accounts.findOne({
             username : body.username
         })
        
+=======
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
         const isPasswordMatch = await bcrypt.compare(body.password,user.password)
         if (user && isPasswordMatch===true) {
             const token = jwt.sign({
                 userId: user._id
             }, JWT_SECRET);
+<<<<<<< HEAD
             res.json({
                 token: token,
                 firstName : user.firstName,
                 balance : account.balance
+=======
+    
+            res.json({
+                token: token
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
             })
         return;
         }
     }catch(err){
+<<<<<<< HEAD
         
         res.status(411).json({
             message: "Error while logging in"
         })
+=======
+        alert("Check your details")
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
     }
 
 
     
+<<<<<<< HEAD
+=======
+    res.status(411).json({
+        message: "Error while logging in"
+    })
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
 })
 
 

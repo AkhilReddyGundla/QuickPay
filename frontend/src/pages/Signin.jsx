@@ -33,21 +33,36 @@ export function Signin(){
 
                     <Button onPress={async()=>{
                         try{
+<<<<<<< HEAD
+=======
+                            console.log(username)
+                            console.log(password)
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
                             const response = await axios.post("http://localhost:3000/api/v1/user/signin",{
                                 username,
                                 password
                             })
+<<<<<<< HEAD
                             localStorage.setItem("token",response.data.token)
                             localStorage.setItem("firstName",response.data.firstName)
                             localStorage.setItem("Balance",response.data.balance)
                             navigate("/dashboard")
                         }catch(err){
+=======
+                            navigate("/dashboard")
+                        }catch(err){
+                            console.log(err)
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
                             alert("Some thing wrong with your information")
                         }
                     }}
                     text = "Sign In"/>
 
+<<<<<<< HEAD
                     <Bottomtext text = "Don't have an account yet?" underlineText = "Sign Up" to = "/Signup"/>
+=======
+                    <Bottomtext text = "Already have account" underlineText = "Sign Up" to = "/Signup"/>
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
                 </div>
             </div>
         </div>

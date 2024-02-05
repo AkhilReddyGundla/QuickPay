@@ -8,7 +8,10 @@ const cors = require('cors');
 app.use(cors());
 
 router.get("/balance",authMiddleware,async (req,res)=>{
+<<<<<<< HEAD
     
+=======
+>>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
     const userId = req.userId;
     const account = await Accounts.findOne({
         userId : userId
