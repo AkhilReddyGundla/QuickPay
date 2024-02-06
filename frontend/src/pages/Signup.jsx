@@ -53,19 +53,9 @@ export function Signup(){
                                     username,
                                     password
                                 })
-<<<<<<< HEAD
-                                
                                 navigate("/signin")
                             }catch(e){
-=======
-                                localStorage.setItem("token",response.data.token)
-                                localStorage.setItem("firstName",firstName)
-                                localStorage.setItem("username",username)
-                                navigate("/signin")
-                            }catch(e){
-                                console.log(e)
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
-                                alert("Wrong info")
+                                alert("User already exists in database")
                             }
                         }
 

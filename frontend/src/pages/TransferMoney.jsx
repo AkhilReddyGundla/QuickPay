@@ -4,19 +4,13 @@ import { Button } from "../components/Button"
 import { useSearchParams } from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios'
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
-=======
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
 export function TransferMoney(){
     const [searchParams] = useSearchParams();
     const [amount,setAmount] = useState(0);
     const userName = searchParams.get("name");
     const id =searchParams.get("id")
-<<<<<<< HEAD
     const navigate = useNavigate()
-=======
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
     return (
         <>
             <div className="grid place-content-center h-screen bg-gray-50">
@@ -31,8 +25,6 @@ export function TransferMoney(){
                         </div>
                         <Inputfields text="Amount (in Rs)" type="number" placeholder="Enter Amount" onChange={(e)=>{setAmount(e.target.value)}}/>
                         <button onClick={async () => {
-<<<<<<< HEAD
-
                             try {
                                 const res = await axios.post("http://localhost:3000/api/v1/accounts/transfer", {
                                     to: id,
@@ -46,36 +38,14 @@ export function TransferMoney(){
 
                                 
                                 alert("Transaction successful");
-                                navigate("/dashboard")
                             } catch (error) {
-                                // Handle error
-                                alert("Check your Balance")
-    
+                                alert("Insuffucent Balance")
                             }
+                            navigate("/dashboard")
                         }} className="justify-center rounded-md text-md font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-blue-500 text-white">
                             Initiate Transfer
                         </button>
 
-=======
-                            console.log(id) 
-                            console.log(amount)
-                            console.log(localStorage.getItem("token"))
-                        const res = await axios.post("http://localhost:3000/api/v1/accounts/transfer", {
-                            "to": id,
-                            "amount" : amount
-                        }, {
-                            headers: {
-                                "Authorization": "Bearer " + localStorage.getItem("token"),
-                                "Content-Type": "application/json",
-                            }
-                        }).then(()=>alert(OK))
-                        .catch((err)=>console.log(err))
-
-                        console.log(res)
-                    }} className="justify-center rounded-md text-md font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-blue-500 text-white">
-                        Initiate Transfer
-                    </button>
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
                     </div>
                 </div>
             </div>

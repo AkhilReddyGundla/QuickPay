@@ -3,15 +3,11 @@ const app = express();
 const {User,Accounts} = require('../db')
 const router = express.Router();
 const {authMiddleware} = require('../middleware');
-const { default: mongoose } = require("mongoose");
+const { mongoose } = require("mongoose");
 const cors = require('cors');
 app.use(cors());
 
 router.get("/balance",authMiddleware,async (req,res)=>{
-<<<<<<< HEAD
-    
-=======
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
     const userId = req.userId;
     const account = await Accounts.findOne({
         userId : userId
@@ -27,12 +23,12 @@ router.post("/transfer",authMiddleware,async(req,res)=>{
     session.startTransaction();
     
     const amount = Number(req.body.amount);
-    const to =  req.body.to;
+    const to =  req.body.to;//reciever id
     try{
         const account = await Accounts.findOne({
             userId : req.userId
         })
-    
+       
 
     if(!account || account.balance < amount){
         return res.status(411).json({
@@ -57,6 +53,7 @@ router.post("/transfer",authMiddleware,async(req,res)=>{
     await Accounts.updateOne({
         userId : to
     },{$inc : {balance : amount}})
+    
     }
     catch(err){
         console.log(err)

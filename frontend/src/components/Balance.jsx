@@ -12,7 +12,6 @@ export function Balance() {
                         Authorization: "Bearer " + localStorage.getItem("token")
                     }
                 });
-
                 const userBalance = response.data.balance;
                 const formattedBalance = userBalance.toLocaleString('en-IN');
                 const userMoney = Number(formattedBalance);

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 require('dotenv').config()
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL);
-=======
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://akhilreddygundla:Akhil%40_06@cluster0.1rlofxa.mongodb.net/PayTM?retryWrites=true&w=majority');
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
 
 const userSchema = new mongoose.Schema({
     username : {
@@ -37,14 +33,11 @@ const userSchema = new mongoose.Schema({
 })
 
 const bankSchema = mongoose.Schema({
-<<<<<<< HEAD
     username :{
         type : String,
         ref : "User",
         required : true 
     },
-=======
->>>>>>> 8b967ef16c2f9f47f87d5825b8e1105cd55a351b
     userId :{
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
